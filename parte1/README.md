@@ -6,7 +6,7 @@ Documentaci¢çón completa de la configuraci¢çón, incidencias resueltas y ve
  
 ## 1.1 Entorno 1 - JupyterLab + Almond Kernel + Scala 2.12.21 
  
-### Resoluci¢çón de incidencia con pip y Python 3.12 
+### Resolución de incidencia con pip y Python 3.12 
 Durante la instalación de JupyterLab surgió un problema porque la terminal no reconocía el comando pip. Se solucionó instalando Python 3.12 y ejecutando: 
  
 ```cmd 
