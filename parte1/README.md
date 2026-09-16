@@ -95,7 +95,7 @@ Creación del proyecto sbt scala-intellij con JDK 17 y Scala 2.12.21:
 ![Crear proyecto](../images/intellij-creacion-proyecto.jpg) 
 ![build.sbt IntelliJ](../images/intellij-build-sbt.jpg) 
  
-### Ejecuci¢n desde el IDE 
+### Ejecución desde el IDE 
 Ejecución del objeto Main desde las herramientas integradas del IDE: 
  
 ![Ejecuci¢n IDE](../images/intellij-ejecucion-ide.jpg) 
