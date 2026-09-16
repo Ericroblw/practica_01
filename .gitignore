@@ -1,0 +1,13 @@
+target/ 
+**/target/ 
+.bloop/ 
+**/.bloop/ 
+.metals/ 
+**/.metals/ 
+.idea/ 
+**/.idea/ 
+.vscode/ 
+.ipynb_checkpoints/ 
+**/.ipynb_checkpoints/ 
+cs.exe 
+cs.zip
