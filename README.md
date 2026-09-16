@@ -23,4 +23,4 @@ IntelliJ IDEA Community + sbt
 
 
 
-[Parte 1, parte 2 y parte 3](parte1/README.md#13-entorno-3--intellij-idea-community--scala-21221--sbt))  
+[Parte 1, parte 2 y parte 3](parte1/README.md#13-entorno-3--intellij-idea-community--scala-21221--sbt)  
