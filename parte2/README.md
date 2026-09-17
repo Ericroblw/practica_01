@@ -5,11 +5,7 @@
 
 Comprobamos si la versión de Scala es la que se requiere:
 
-```scala
-scala.util.Properties.versionString
-// res2: String = "version 2.12.21"
-
-```
+![Nombre](images/parte2-version-scala.jpg)
 
 ---
 
