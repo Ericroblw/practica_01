@@ -5,27 +5,13 @@
 
 Comprobamos si la versión de Scala es la que se requiere:
 
-![Nombre](images/parte2-version-scala.jpg)
+![Version Scala](images/parte2-version-scala.jpg)
 
 ---
 
 ## Ejercicio 1 — Variables, tipos e inferencia
 
-```scala
-val nombre = "Eric"
-val partidas = 5
-val puntuacion = 11
-val tasaVictorias = 67
-val jugadorActivo = true
-
-// Salida:
-// nombre: String = "Eric"
-// partidas: Int = 5
-// puntuacion: Int = 11
-// tasaVictorias: Int = 67
-// jugadorActivo: Boolean = true
-
-```
+![Ejercicio 1](images/parte2-%20ejercicio1.jpg)
 
 ### Documentación
 
@@ -55,17 +41,7 @@ val jugadorActivo = true
 
 Se definieron dos identificadores para analizar la diferencia entre mutabilidad e inmutabilidad en Scala: `jugador` mediante la palabra clave `val` y `puntuacion` mediante `var`. Se realizaron incrementos aritméticos sucesivos sobre `puntuacion` mostrando su valor acumulado final, y posteriormente se forzó la reasignación de `jugador` para verificar la protección del compilador frente a modificaciones sobre valores inmutables.
 
-```scala
-val jugador = "Marta"
-var puntuacion = 10
-
-puntuacion = puntuacion + 5
-puntuacion = puntuacion + 3
-println(puntuacion) // 18
-
-jugador = "Eric" // Error
-
-```
+![Ejercicio 2](images/parte2-%20ejercicio2.jpg)
 
 ### Documentación
 
@@ -79,15 +55,7 @@ jugador = "Eric" // Error
 
 En este ejercicio he probado la precisión de los números decimales en Scala usando `Double` y `Float` con el número pi lleno de decimales. También he declarado variables con los tipos básicos más comunes (`Int`, `Boolean` y `String`) para ver cómo maneja el lenguaje cada tipo de dato.
 
-```scala
-val numeroPi: Double = 3.14159265358979323846264338327
-val numeroPiFloat: Float = 3.14159265358979323846264338327f
-
-val estudiantes: Int = 25
-val aprobado: Boolean = true
-val curso: String = "Big Data"
-
-```
+![Ejercicio 3](images/parte2-%20ejercicio3.jpg)
 
 ### Documentación
 
@@ -101,26 +69,7 @@ val curso: String = "Big Data"
 
 En este ejercicio he definido la función `bust`, la cual recibe por parámetro el valor de una mano como un entero (`Int`) y devuelve un valor booleano (`Boolean`). Dentro de la función utilizo una estructura condicional `if / else` para evaluar si la puntuación es estrictamente mayor que 21, devolviendo `true` si el jugador se ha pasado y `false` si la mano sigue siendo válida (menor o igual a 21). La función cumple con los principios de estilo funcional al no modificar variables externas y limitarse a retornar el resultado de la evaluación lógica. Finalmente, he realizado las llamadas de prueba pasando las puntuaciones 18, 21, 22 y 30, obteniendo la secuencia esperada: `false`, `false`, `true` y `true`.
 
-```scala
-var hand1 = 18
-var hand2 = 21
-var hand3 = 22
-var hand4 = 30
-
-def bust(hand: Int): Boolean = {
-  if (hand > 21) {
-    true
-  } else {
-    false
-  }
-}
-
-bust(hand1) // false
-bust(hand2) // false
-bust(hand3) // true
-bust(hand4) // true
-
-```
+![Ejercicio 4](images/parte2-%20ejercicio4.jpg)
 
 ---
 
@@ -128,21 +77,7 @@ bust(hand4) // true
 
 En este ejercicio he implementado la función `maxHand`, que recibe dos parámetros enteros (`valor1` y `valor2`) y devuelve el valor numérico más alto utilizando una estructura de control condicional `if / else`. He realizado las llamadas de prueba pasando pares de valores con distintas combinaciones: cuando el segundo es mayor (17 y 19), cuando el primero es mayor (20 y 18), y dos casos donde ambas manos tienen exactamente la misma puntuación (21 y 21, y 30 y 30).
 
-```scala
-def maxHand(valor1: Int, valor2: Int): Int = {
-  if (valor1 > valor2) {
-    valor1
-  } else {
-    valor2
-  }
-}
-
-maxHand(17, 19) // 19
-maxHand(20, 18) // 20
-maxHand(21, 21) // 21
-maxHand(30, 30) // 30
-
-```
+![Ejercicio 5](images/parte2-%20ejercicio5.jpg)
 
 ### Documentación
 
@@ -155,34 +90,7 @@ maxHand(30, 30) // 30
 
 En este ejercicio he implementado la función `ganador`, la cual recibe dos puntuaciones enteras (`handA` y `handB`) y determina cuál resulta vencedora según las normas del juego. Para modularizar y reutilizar código, he integrado la función `bust` del ejercicio 4 para comprobar si las manos sobrepasan 21, y la función `maxHand` del ejercicio 5 dentro del bloque `else` para resolver el desempate cuando ninguna de las dos se pasa. Se evaluaron con éxito los cinco casos de prueba solicitados por el enunciado.
 
-```scala
-def bust(hand: Int): Boolean = {
-  if (hand > 21) true else false
-}
-
-def maxHand(valor1: Int, valor2: Int): Int = {
-  if (valor1 > valor2) valor1 else valor2
-}
-
-def ganador(handA: Int, handB: Int): Int = {
-  if (bust(handA) && bust(handB)) {
-    0
-  } else if (bust(handA)) {
-    handB
-  } else if (bust(handB)) {
-    handA
-  } else {
-    maxHand(handA, handB)
-  }
-}
-
-ganador(26, 20) // 20
-ganador(18, 22) // 18
-ganador(24, 25) // 0
-ganador(17, 19) // 19
-ganador(21, 20) // 21
-
-```
+![Ejercicio 6](images/parte2-ejercicio6.jpg)
 
 ### Documentación: Análisis de condiciones cumplidas en cada caso de prueba
 
@@ -198,16 +106,7 @@ ganador(21, 20) // 21
 
 En la primera celda declaré un array inmutable en su referencia llamado `jugadores` utilizando la palabra clave `val`, inicializado con tres cadenas de texto: `"Alex"`, `"Chen"` y `"Marta"`. A continuación, accedí a la posición inicial mediante su índice cero y sustituí `"Alex"` por `"Sindhu"`, demostrando que el contenido interno de un array puede modificarse. En la segunda celda repetí el proceso e intenté asignar el número entero 500 en la posición cero con `jugadores(0) = 500`, provocando un error en tiempo de compilación para comprobar la seguridad del sistema de tipos estático de Scala.
 
-```scala
-val jugadores = Array("Alex", "Chen", "Marta")
-println(jugadores)
-jugadores(0) = "Sindhu"
-println(jugadores)
-
-// Intento de error de tipo:
-jugadores(0) = 500 // Compilation Failed
-
-```
+![Ejercicio 7](images/parte2-%20ejercicio7.jpg)
 
 ### Documentación
 
@@ -225,15 +124,7 @@ jugadores(0) = 500 // Compilation Failed
 
 En este ejercicio he instanciado un array de 4 posiciones para enteros utilizando la sintaxis `new Array[Int](4)`. Después asigné de forma manual las puntuaciones de cada jugador en sus respectivos índices (del 0 al 3) con los valores 17, 24, 21 y 19. Por último, utilicé la propiedad `.length` para comprobar el tamaño total de la estructura, obteniendo una longitud de 4.
 
-```scala
-val manos = new Array[Int](4)
-manos(0) = 17
-manos(1) = 24
-manos(2) = 21
-manos(3) = 19
-println(manos.length) // 4
-
-```
+![Ejercicio 8](images/parte2-%20ejercicio8.jpg)
 
 ### Documentación
 
@@ -246,26 +137,7 @@ Un `Array[Int]` recién creado se inicializa automáticamente con el valor por d
 
 En este ejercicio he recorrido una colección de puntuaciones almacenadas en un array utilizando una estructura de control iterativa `while`. He definido un contador mutable con `var i = 0` para llevar el índice de posición y he establecido como condición de parada que el índice sea menor que la longitud total del array mediante la propiedad `.length`. En cada iteración se extrae el elemento correspondiente, se evalúa a través de la función `bust` para verificar si supera 21 y se imprime el resultado formateado por consola, finalizando con el incremento manual del contador mediante `i += 1`.
 
-```scala
-def bust(hand: Int): Boolean = {
-  if (hand > 21) {
-    true
-  } else {
-    false
-  }
-}
-
-val manos = scala.Array(17, 24, 21, 19, 26)
-var i = 0
-
-while (i < manos.length) {
-  val manoActual = manos(i)
-  val sePasa = bust(manoActual)
-  println(s"Mano: $manoActual - ¿Se pasa de 21?: $sePasa")
-  i += 1
-}
-
-```
+![Ejercicio 9](images/parte2-%20ejercicio9.jpg)
 
 ### Documentación
 
@@ -278,18 +150,7 @@ while (i < manos.length) {
 
 En este ejercicio he creado una lista inmutable llamada `jugadores` con tres elementos de tipo `String`. Posteriormente utilicé el operador cons (`::`) para anteponer `"Sindhu"` al inicio de la lista y almacenar el resultado en una nueva variable llamada `jugadoresNuevos`. Mostré ambas listas por pantalla junto a sus longitudes con `length` para verificar que la lista original no sufrió alteraciones, e imprimí `jugadoresNuevos.reverse` para mostrar la nueva lista en orden inverso.
 
-```scala
-val jugadores = List("Alex", "Chen", "Marta")
-println(jugadores)
-
-val jugadoresNuevos = ("Sindhu" :: jugadores)
-println(jugadoresNuevos)
-println(jugadores)
-println(jugadoresNuevos.length)
-println(jugadores.length)
-println(jugadoresNuevos.reverse)
-
-```
+![Ejercicio 10](images/parte2-%20ejercicio10.jpg)
 
 ### Documentación
 
@@ -302,18 +163,7 @@ println(jugadoresNuevos.reverse)
 
 En este ejercicio he construido dos listas utilizando la lista vacía `Nil` combinada con el operador cons (`::`), asociando los elementos de derecha a izquierda: `listaNil` con tres elementos (`"Ana"`, `"Luis"`, `"Marta"`) y `listaNil2` con dos (`"Pedro"`, `"Sofia"`). Posteriormente utilicé el operador de concatenación (`:::`) para unir ambas colecciones en una nueva llamada `listaFinal`. Por último, imprimí por pantalla la lista resultante y las dos originales para validar el resultado.
 
-```scala
-val listaNil = "Ana" :: "Luis" :: "Marta" :: Nil
-println(listaNil)
-
-val listaNil2 = "Pedro" :: "Sofia" :: Nil
-val listaFinal = listaNil ::: listaNil2
-
-println(listaFinal)
-println(listaNil)
-println(listaNil2)
-
-```
+![Ejercicio 11](images/parte2-%20ejercicio11.jpg)
 
 ---
 
@@ -321,27 +171,7 @@ println(listaNil2)
 
 En este ejercicio he evaluado distintas expresiones booleanas a partir de tres puntuaciones enteras (`handA = 18`, `handB = 21`, `handC = 25`). He puesto a prueba tanto operadores relacionales (mayor que `>`, igualdad `==`, desigualdad `!=`) como operadores lógicos combinados (conjunción `&&`, disyunción `||` y negación `!`). Cada resultado booleano se ha almacenado en una variable inmutable e impreso por pantalla mediante interpolación de cadenas `s"..."` para verificar su evaluación.
 
-```scala
-val handA = 18
-val handB = 21
-val handC = 25
-
-val esMayor = handA > handB
-val esIgual = handB == 21
-val esDistinto = handC != 21
-
-val ambasValidas = (handA <= 21) && (handB <= 21)
-val algunaSePasa = (handA > 21) || (handC > 21)
-val bNoEs21 = !(handB == 21)
-
-println(s"handA > handB: $esMayor")
-println(s"handB == 21: $esIgual")
-println(s"handC != 21: $esDistinto")
-println(s"handA <= 21 && handB <= 21: $ambasValidas")
-println(s"handA > 21 || handC > 21: $algunaSePasa")
-println(s"!(handB == 21): $bNoEs21")
-
-```
+![Ejercicio 12](images/parte2-%20ejercicio12.jpg)
 
 ### Documentación
 
@@ -360,34 +190,7 @@ println(s"!(handB == 21): $bNoEs21")
 
 En este ejercicio he implementado dos enfoques distintos para recorrer la colección de manos: el primero utilizando un bucle tradicional `while` con control manual de índice, y el segundo empleando el método de orden superior `foreach` mediante una función anónima con bloque de llaves. En ambos casos se evalúa si cada puntuación supera el límite de 21, comprobando las diferencias sintácticas y conceptuales entre el paradigma imperativo y el declarativo.
 
-```scala
-def bust(hand: Int): Boolean = {
-  if (hand > 21) {
-    true
-  } else {
-    false
-  }
-}
-
-val manos = scala.Array(17, 24, 21, 26, 18)
-var i = 0
-
-while (i < manos.length) {
-  val manoActual = manos(i)
-  val sePasa = bust(manoActual)
-  println(s"Mano: $manoActual - ¿Se pasa de 21?: $sePasa")
-  i += 1
-}
-
-manos.foreach { mano =>
-  if (mano > 21) {
-    println(s"$mano se pasa")
-  } else {
-    println(s"$mano es valida")
-  }
-}
-
-```
+![Ejercicio 13](images/parte2-%20ejercicio13.jpg)
 
 ### Documentación
 
@@ -401,30 +204,7 @@ manos.foreach { mano =>
 
 En este ejercicio he implementado y contrastado dos formas opuestas de estructurar una operación de suma. En la primera parte utilicé una función con enfoque imperativo que no retorna ningún valor útil (devuelve `Unit`) y altera repetidamente el estado de una variable externa mutable declarada con `var`. En la segunda parte diseñé una función pura denominada `sumar`, la cual recibe dos parámetros de entrada y devuelve un nuevo resultado entero como expresión directa sin alterar ningún estado fuera de su propio cuerpo.
 
-```scala
-var total = 0
-
-def sumarAlTotal(valor: Int): Unit = {
-  total = total + valor
-}
-
-sumarAlTotal(5)
-println(s"Total tras sumar 5: $total")
-sumarAlTotal(10)
-println(s"Total tras sumar 10: $total")
-sumarAlTotal(20)
-println(s"Total tras sumar 20: $total")
-
-def sumar(a: Int, b: Int): Int = {
-  a + b
-}
-
-val resultado1 = sumar(10, 5)
-println(s"Resultado función pura sumar(10, 5): $resultado1")
-val resultado2 = sumar(resultado1, 20)
-println(s"Resultado función pura sumar($resultado1, 20): $resultado2")
-
-```
+![Ejercicio 14](images/parte2-%20ejercicio14.jpg)
 
 ### Documentación
 
@@ -441,52 +221,9 @@ println(s"Resultado función pura sumar($resultado1, 20): $resultado2")
 
 He implementado la simulación del torneo integrando colecciones, funciones personalizadas y estructuras de control. En la Ronda 1 usé un bucle `while` con indexación manual para comprobar cada mano con la función `bust`, vincularla al jugador correspondiente y calcular la puntuación máxima válida con `maxHand`. En la Ronda 2 utilicé el método `foreach` con una función anónima para evaluar la validez de cada puntuación y actualizar la mejor marca del torneo.
 
-```scala
-def bust(hand: Int): Boolean = {
-  if (hand > 21) true else false
-}
+![Ejercicio 15 - Codigo](images/parte2-%20ejercicio15.1.jpg)
 
-def maxHand(valor1: Int, valor2: Int): Int = {
-  if (valor1 > valor2) valor1 else valor2
-}
-
-val jugadores = List("Alex", "Chen", "Marta", "Sindhu")
-val manos = scala.Array(18, 24, 21, 20)
-val manosRonda2 = scala.Array(22, 19, 20, 21)
-
-println("--- RONDA 1 ---")
-var i = 0
-var mejorPuntuacionR1 = 0
-
-while (i < manos.length) {
-  val jugador = jugadores(i)
-  val puntuacion = manos(i)
-  val sePasa = bust(puntuacion)
-
-  if (sePasa) {
-    println(s"$jugador sacó $puntuacion: ¡Se pasa de 21! (Eliminado)")
-  } else {
-    println(s"$jugador sacó $puntuacion: Puntuación válida")
-    mejorPuntuacionR1 = maxHand(mejorPuntuacionR1, puntuacion)
-  }
-  i += 1
-}
-println(s"Mejor puntuación válida Ronda 1: $mejorPuntuacionR1\n")
-
-println("--- RONDA 2 ---")
-var mejorPuntuacionR2 = 0
-
-manosRonda2.foreach { puntuacion =>
-  if (!bust(puntuacion)) {
-    println(s"Puntuación válida en Ronda 2: $puntuacion")
-    mejorPuntuacionR2 = maxHand(mejorPuntuacionR2, puntuacion)
-  } else {
-    println(s"Puntuación $puntuacion: ¡Se pasa de 21!")
-  }
-}
-println(s"Mejor puntuación válida Ronda 2: $mejorPuntuacionR2")
-
-```
+![Ejercicio 15 - Ejecucion](images/parte2-%20ejercicio15.2.jpg)
 
 ### Documentación
 
