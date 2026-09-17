@@ -20,7 +20,7 @@ Comprobación de la versión activa de OpenJDK en la terminal integrada:
 #### 2. Verificación de Scala 2.12.21
 Comprobación de la versión de Scala ejecutada mediante la propiedad interna `scala.util.Properties.versionString`:
 
-![Version Scala](images/parte3-version-Scala.jpg)
+![Version Scala](images/parte3-20%version-Scala.jpg)
 
 ---
 
