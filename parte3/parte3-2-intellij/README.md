@@ -1,72 +1,59 @@
 # Practica 01 - Parte 3.2: Analizador de Calificaciones (IntelliJ IDEA)
 
-Este modulo implementa un analizador estadistico de calificaciones academicas desarrollado en Scala 2.12.21 y gestionado a traves de sbt dentro del entorno IntelliJ IDEA.
+Este subproyecto implementa una aplicacion en Scala para el procesamiento y analisis estadistico de calificaciones academicas, estructurada y gestionada con sbt dentro del entorno IntelliJ IDEA.
 
 ---
 
-## 1. Estructura del proyecto
+## 1. Configuracion del entorno en IntelliJ IDEA
 
-El subproyecto se organiza respetando la arquitectura estandar de proyectos sbt:
+Para la correcta ejecucion del proyecto se configuro el SDK de Java con Eclipse Temurin 17 y la version correspondiente del lenguaje Scala.
 
+![Configuracion del SDK](images/jdk-confing.jpg)
 
-parte3-2-intellij/
-├── images/
-├── README.md
-└── analizador-notas/
-    ├── build.sbt
-    ├── project/
-    │   └── build.properties
-    └── src/
-        └── main/
-            └── scala/
-                └── Main.scala
-2. Configuracion de compilacion (build.sbt)Definicion de dependencias y versiones en analizador-notas/build.sbt:ScalascalaVersion := "2.12.21"
+---
+
+## 2. Estructura del proyecto
+
+El proyecto respeta la jerarquia estandar de un proyecto sbt:
+
+![Estructura del proyecto](images/jdk-estructura.jpg)
+
+3. Archivo build.sbt
+Definicion de metadatos y version de Scala en build.sbt:
+![Archivo build.sbt](images/jdk-build-sbt.jpg)
+
+Scala    
+scalaVersion := "2.12.21"
 
 name := "analizador-notas"
-El archivo project/build.properties especifica el motor de construccion:Propertiessbt.version=1.10.7
-3. Implementacion modularEl archivo Main.scala centraliza las funciones de evaluacion y clasificacion cualitativa:aprobado(nota: Int): Boolean: Determina si la calificacion alcanza el umbral minimo aprobatorio ($\ge 5$).estadoNota(nota: Int): String: Devuelve "APROBADO" o "SUSPENSO" invocando a la funcion anterior.maxNota(a: Int, b: Int): Int: Retorna el valor maximo mediante estructuras condicionales if-else.clasificacion(nota: Int): String: Segmenta el rendimiento en "EXCELENTE", "NOTABLE", "APROBADO" o "SUSPENSO".4. Inmutabilidad y manejo de coleccionesSe incorpora un nuevo registro a la coleccion principal utilizando el constructor de listas :: (cons):Scalaval nuevosEstudiantes = "Carlos" :: estudiantes
-Justificacion tecnicaEn Scala, la coleccion List es estrictamente inmutable. La operacion :: genera una nueva referencia en memoria donde el nuevo elemento encabeza la estructura, reutilizando de forma segura los nodos de la lista original por debajo (structural sharing). Por esta razon, estudiantes no sufre ninguna mutacion ni efecto colateral.5. Compilacion y ejecucionCompilacion limpia con sbtBashsbt compile
-Salida completa del programaBashsbt run
-Plaintext=== PRIMERA EVALUACION ===
-Ana -> 8 -> APROBADO
-Luis -> 4 -> SUSPENSO
-Marta -> 10 -> APROBADO
-Pedro -> 6 -> APROBADO
-Sofia -> 3 -> SUSPENSO
+4. Implementacion modular (Main.scala)
+Se implementaron funciones puras y estructuras de control segun los requisitos:
 
---- Resumen del grupo ---
-Estudiantes: 5
-Aprobados: 3
-Suspensos: 2
-Mejor nota: 10
+aprobado(nota: Int): Boolean: Determina si la calificacion es mayor o igual a 5.
 
-=== CLASIFICACION DETALLADA (PRIMERA EVALUACION) ===
-Ana -> 8 -> NOTABLE
-Luis -> 4 -> SUSPENSO
-Marta -> 10 -> EXCELENTE
-Pedro -> 6 -> APROBADO
-Sofia -> 3 -> SUSPENSO
+estadoNota(nota: Int): String: Devuelve "APROBADO" o "SUSPENSO" invocando a aprobado.
 
-=== SEGUNDA EVALUACION ===
-Ana -> 9 -> APROBADO
-Luis -> 5 -> APROBADO
-Marta -> 8 -> APROBADO
-Pedro -> 7 -> APROBADO
-Sofia -> 6 -> APROBADO
+maxNota(a: Int, b: Int): Int: Retorna el valor maximo entre dos notas mediante if-else.
 
---- Resumen segunda evaluacion ---
-Estudiantes: 5
-Aprobados: 5
-Suspensos: 0
-Mejor nota: 9
+clasificacion(nota: Int): String: Clasifica cualitativamente cada calificacion (EXCELENTE, NOTABLE, APROBADO, SUSPENSO).
 
-=== COMPARACION DE EVALUACIONES ===
-Mejor nota de la primera evaluacion: 10
-Mejor nota de la segunda evaluacion: 9
-Numero de aprobados de la primera: 3
-Numero de aprobados de la segunda: 5
-Resultado: El grupo ha mejorado.
+5. Inmutabilidad y manejo de Listas
+En el apartado de colecciones se incorpora un estudiante al inicio de la lista mediante el operador de cons (::):
 
-=== USO DE LISTAS ===
-Lista original: List(Ana, Luis, Marta, Pedro, Sofia)
-Lista nueva: List(Carlos, Ana, Luis, Marta, Pedro, Sofia)
+Scala
+val nuevosEstudiantes = "Carlos" :: estudiantes
+Justificacion tecnica
+En Scala, List es una estructura de datos inmutable. El operador :: crea una nueva lista anteponiendo el nuevo elemento y reutilizando la estructura existente (comparticion estructural en memoria). Por este motivo, la lista original estudiantes permanece intacta sin verse alterada ni generar efectos secundarios.
+
+6. Compilacion y Ejecucion con sbt
+Compilacion (sbt compile)
+Compilacion limpia y exitosa desde la terminal:
+![Compilacion sbt](images/jdk-sbt-compile.jpg)
+
+Ejecucion (sbt run)
+Lanzamiento de la tarea de ejecucion del proyecto:
+![Comando sbt run](images/jdk-sbt-run1.jpg)
+Salida completa del programa
+Resultado arrojado en consola con las dos evaluaciones, estadisticas, comparacion de grupos y validacion de inmutabilidad:
+
+![Salida completa sbt](images/jdk-sbt-run.jpg)
