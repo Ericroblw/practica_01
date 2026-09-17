@@ -11,10 +11,10 @@
 ### Verificación del entorno
 
 #### Versión de Java (JDK 17)
-![Version Java](images/parte3-java-version.png)
+![Version Java](images/parte3-java-version.jpg)
 
 #### Versión de Scala (2.12.21)
-![Version Scala](images/parte3-version-Scala.png)
+![Version Scala](images/parte3-version-Scala.jpg)
 
 ## Descripción
 
@@ -26,13 +26,13 @@ Mini proyecto desarrollado en Scala para procesar y clasificar los resultados de
 parte3-1-vscode/
 ├── README.md
 ├── images/
-│   ├── parte3-java-version.png
-│   ├── parte3-version-Scala.png
-│   ├── parte3-funcion-bust.png
-│   ├── parte3-funcion-estadoMano.png
-│   ├── parte3-funcion-mejorMano.png
-│   ├── parte3-sbt-compile.png
-│   └── parte3-sbt-run.png
+│   ├── parte3-java-version.jpg
+│   ├── parte3-version-Scala.jpg
+│   ├── parte3-funcion-bust.jpg
+│   ├── parte3-funcion-estadoMano.jpg
+│   ├── parte3-funcion-mejorMano.jpg
+│   ├── parte3- sbt-compile.jpg
+│   └── parte3- sbt-run.jpg
 └── torneo-twenty-one/
     ├── build.sbt
     ├── project/
