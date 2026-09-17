@@ -1,42 +1,57 @@
-# Mini proyecto 3.1 — Torneo de Twenty-One
+# Mini proyecto 3.1 — Clasificador de resultados de un torneo de Twenty-One
 
-## Entorno
+## Entorno de trabajo
 
-- Visual Studio Code
-- Metals
-- Scala 2.12.21
-- JDK 17 (Eclipse Adoptium Temurin 17.0.18)
-- sbt 1.13.0
+- **Editor / IDE:** Visual Studio Code
+- **Language Server:** Scala (Metals)
+- **Versión de Scala:** 2.12.21
+- **Máquina Virtual:** Java Development Kit 17 (Eclipse Adoptium Temurin 17.0.18)
+- **Herramienta de compilación:** sbt 1.13.0
 
-### Verificación del entorno
+### Verificación y configuración del entorno
 
-#### Versión de Java (JDK 17)
+Para garantizar la compatibilidad del ecosistema sbt con Scala 2.12.21, se configuró el entorno local asegurando el uso estricto de JDK 17 mediante las variables del sistema y la directiva `metals.javaHome`.
+
+#### 1. Verificación de JDK 17
+Comprobación de la versión activa de OpenJDK en la terminal integrada:
+
 ![Version Java](images/parte3-java-version.jpg)
 
-#### Versión de Scala (2.12.21)
+#### 2. Verificación de Scala 2.12.21
+Comprobación de la versión de Scala ejecutada mediante la propiedad interna `scala.util.Properties.versionString`:
+
 ![Version Scala](images/parte3-version-Scala.jpg)
 
-## Descripción
+---
 
-Mini proyecto desarrollado en Scala para procesar y clasificar los resultados de un torneo de cartas de Twenty-One a lo largo de dos rondas consecutivas. El programa evalúa si las manos de cada jugador son válidas o exceden el límite de 21 (bust), calcula estadísticas agregadas por ronda, identifica la mano ganadora aplicando lógica condicional y compara el desempeño global entre ambas rondas mediante estructuras imperativas (`while`) y colecciones funcionales (`foreach`).
+## Descripción del proyecto
+
+Este mini proyecto implementa un sistema automatizado de procesamiento y clasificación de jugadas para un torneo del juego de cartas **Twenty-One** (Blackjack simplificado). 
+
+El objetivo principal es procesar colecciones paralelas de datos (jugadores y puntuaciones) a lo largo de dos fases eliminatorias consecutivas. El sistema evalúa individualmente el estado de la mano de cada jugador, realiza recuentos estadísticos grupales mediante acumuladores, determina de forma algorítmica la mejor mano válida y compara el rendimiento entre rondas utilizando estructuras de control imperativas y funcionales.
+
+---
 
 ## Estructura del proyecto
 
+El proyecto respeta la organización canónica de aplicaciones gestionadas por sbt:
+
 ```text
-parte3-1-vscode/
-├── README.md
+torneo-twenty-one/
+├── build.sbt
+├── project/
+│   ├── build.properties
+│   └── metals.sbt
+├── src/
+│   └── main/
+│       └── scala/
+│           └── Main.scala
 ├── images/
 │   ├── parte3-java-version.jpg
 │   ├── parte3-version-Scala.jpg
 │   ├── parte3-funcion-bust.jpg
 │   ├── parte3-funcion-estadoMano.jpg
 │   ├── parte3-funcion-mejorMano.jpg
-│   ├── parte3- sbt-compile.jpg
-│   └── parte3- sbt-run.jpg
-└── torneo-twenty-one/
-    ├── build.sbt
-    ├── project/
-    └── src/
-        └── main/
-            └── scala/
-                └── Main.scala
+│   ├── parte3-%20sbt-compile.jpg
+│   └── parte3-%20sbt-run.jpg
+└── README.md
