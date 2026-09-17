@@ -8,7 +8,7 @@ Este modulo implementa un analizador estadistico de calificaciones academicas de
 
 El subproyecto se organiza respetando la arquitectura estandar de proyectos sbt:
 
-```text
+
 parte3-2-intellij/
 ├── images/
 ├── README.md
